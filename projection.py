@@ -57,6 +57,6 @@ points.append(Vector((50, 50, 0)))
 for x in range(0, len(points)):
     
     p = mm.vecMatrix(points[x])
-    Vertice(points[p])
+    Vertice(p)
     
 angle += 0.01
