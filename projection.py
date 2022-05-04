@@ -25,17 +25,12 @@ class Vector:
 
 class Vertice:
     
-    def __init__(self, coordinates):
+    def __init__(self, corr):
         
         global scale
         
-        self.x = coordinates[0]
-        self.y = coordinates[1]
-        self.z = coordinates[2]
-        
-        zAxis = (self.z * scale) / 2
-        
-        pygame.draw.circle(window, (255, 255, 255), (x, y), scale)
+        print(corr[0], corr[1])
+        #pygame.draw.circle(window, (255, 255, 255), (corr[0], corr[1]), scale)
         pygame.display.flip()
 
 def win():
