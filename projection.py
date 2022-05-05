@@ -7,13 +7,22 @@ import pygame, sys
 import MatrixMultiplication as mm
 pygame.init()
 
-window = pygame.display.set_mode([600, 600])
+SCREEN_WIDTH = 600
+SCREEN_HEIGHT = 600
+
+window = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
 window.fill((0, 0, 0))
 
 points = []
 angle = 0
 
 scale = 4
+
+# Functions and Matrices
+projection = [
+    [1, 0, 0],
+    [0, 1, 0]
+]
 
 class Vector:
     
@@ -29,8 +38,13 @@ class Vertice:
         
         global scale
         
-        print(corr[0], corr[1])
-        #pygame.draw.circle(window, (255, 255, 255), (corr[0], corr[1]), scale)
+        x = corr[0][0]
+        y = corr[1][0]
+        
+        x += (SCREEN_WIDTH / 2)
+        y -= (SCREEN_HEIGHT / 2) * -1
+        
+        pygame.draw.circle(window, (255, 255, 255), (x, y), scale)
         pygame.display.flip()
 
 def win():
@@ -44,10 +58,10 @@ def win():
                 sys.exit()
     
 # Square Points
-points.append(Vector((50, 150, 0)))
-points.append(Vector((150, 50, 0)))
-points.append(Vector((150, 150, 0)))
-points.append(Vector((50, 50, 0)))
+points.append(Vector((-50, -50, 0)))
+points.append(Vector((50, -50, 0)))
+points.append(Vector((50, 50, 100)))
+points.append(Vector((-50, 50, 100)))
 
 for x in range(0, len(points)):
     
